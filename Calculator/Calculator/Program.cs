@@ -37,8 +37,30 @@ namespace Calculator
              * 3) Umozni uzivateli zadavat i desetinna cisla, tedy prekopej kalkulacku tak, aby umela pracovat s floaty
              */
 
-            //Tento komentar smaz a misto nej zacni psat svuj prdacky kod.
-
+            
+            Console.WriteLine("napis dve cisla");
+            int a;
+            int a = Convert.ToInt32(Console.ReadLine())
+            int b;
+            int b = Convert.ToInt32(Console.ReadLine())
+            Console.WriteLine("napis soucet, rozdil, soucin nebo podil");
+            string znam;
+            znam = Console.ReadLine().ToString;
+            double res;
+            if (znam = soucet){
+                res = a+b;
+            }
+            if (znam = rozdil){
+                res = a-b;
+            }
+            if (znam = soucin){
+                res = a*b;
+            }
+            if (znam = podil){
+                res = a/b;
+            }
+            Console.WriteLine("vysledek je " res)
+            
             Console.ReadKey(); //Toto nech jako posledni radek, aby se program neukoncil ihned, ale cekal na stisk klavesy od uzivatele.
         }
     }
