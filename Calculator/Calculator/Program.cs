@@ -36,31 +36,88 @@ namespace Calculator
              *       - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements#the-while-statement
              * 3) Umozni uzivateli zadavat i desetinna cisla, tedy prekopej kalkulacku tak, aby umela pracovat s floaty
              */
-
-            
-            Console.WriteLine("napis dve cisla");
+            string what;
+            char ch;
+            int znam;
             int a;
-            int a = Convert.ToInt32(Console.ReadLine())
             int b;
-            int b = Convert.ToInt32(Console.ReadLine())
-            Console.WriteLine("napis soucet, rozdil, soucin nebo podil");
-            string znam;
-            znam = Console.ReadLine().ToString;
-            double res;
-            if (znam = soucet){
-                res = a+b;
+            int x = 1;
+            int i = 2;
+            int v = 0;
+            int konec = 0;
+            double res = 0;
+            while (konec == 0)
+            {
+                what = "a";
+                while ((what != "s") && (what != "r") && (what != "n") && (what != "p") && (what != "m") && (what != "q"))
+                {
+                    Console.WriteLine("vyber: s (soucet), r (rozdil), n (soucin), p (podil), m (zmena soustavy), q (ukoncit program");
+                    what = Convert.ToString(Console.ReadLine());
+                }
+                if (what == "q")
+                {
+                    konec = 1;
+                }
+                else
+                {
+                    Console.WriteLine("napis dve cisla");
+                    if (what == "m")
+                    {
+                        Console.WriteLine("cislo; soustava");
+                    }
+
+                    a = Convert.ToInt32(Console.ReadLine());
+                    b = Convert.ToInt32(Console.ReadLine());
+
+
+                    if (what == "s")
+                    {
+                        res = a + b;
+                    }
+                    if (what == "r")
+                    {
+                        res = a - b;
+                    }
+                    if (what == "n")
+                    {
+                        res = a * b;
+                    }
+                    if (what == "p")
+                    {
+                        Convert.ToDouble(a);
+                        res = a / b;
+                    }
+                    if (what == "m")
+                    {
+
+                        while (b >= 10 && b <= 1)
+                        {
+                            Console.WriteLine("soustavu zvol mezi 2 a 9");
+                            b = Convert.ToInt32(Console.ReadLine());
+                        }
+                        while (a > 0)
+                        {
+                            v = (a % b);
+                            res = res + v * x;
+                            x = x * 10;
+                            a = a / b;
+                            if (a == 1)
+                            {
+                                i--;
+                            }
+                        }
+                    }
+                }
+                if (konec == 1)
+                {
+                    Console.WriteLine("stiskni libovolnou klavesu pro ukonceni programu");
+                }
+                else
+                {
+                Console.WriteLine("vysledek je " + res);
+                }
             }
-            if (znam = rozdil){
-                res = a-b;
-            }
-            if (znam = soucin){
-                res = a*b;
-            }
-            if (znam = podil){
-                res = a/b;
-            }
-            Console.WriteLine("vysledek je " res)
-            
+
             Console.ReadKey(); //Toto nech jako posledni radek, aby se program neukoncil ihned, ale cekal na stisk klavesy od uzivatele.
         }
     }
