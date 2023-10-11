@@ -77,12 +77,19 @@ namespace RockPaperScissors
                 c = rnd.Next(1,4);
                 //* 1 = kamen, 2 = nuzky, 3 = papir
 
-                while ((p != "k") || (p != "n") || (p != "p"))
+                int ano = 0;
+                while (ano == 0)
                 {
                     Console.WriteLine("zadej k (kamen), n (nuzky) nebo p (papir)");
-                    p = Console.ReadLine();
+                    p = Console.ReadLine(); 
+                    
+                    if ((p == "k") || (p == "n") || (p == "p"))
+                    {
+                      ano = 1;
+                    }
                 }
-                
+                ano = 0;
+
                 if (c == 1)
                 {
                     Console.WriteLine("počítač zvolil kámen");
@@ -119,13 +126,14 @@ namespace RockPaperScissors
                         Console.WriteLine("nůžky stříhají papír, bod pro počítač");
                         cskore++;
                     }
+                }
             }
             
 
 
 
 
-            Random rng = new Random(); //instance tridy Random pro generovani nahodnych cisel
+        
 
 
 
