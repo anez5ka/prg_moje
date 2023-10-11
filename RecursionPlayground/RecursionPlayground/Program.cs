@@ -64,7 +64,8 @@ namespace RecursionPlayground
                 ress = n;
             }
             // TODO: Urci ukoncovaci podminku pro Fibonacciho a zavolej Fibonacci zevnitr se spravnym parametrem / vypoctem.
-            return ress; // TODO: Uprav, aby Fibonacci vracel spravnou hodnotu.
+            return ress; // TODO: Uprav, aby Fibonacci vracel spravnou hodnotu
+            
         }
     }
 }

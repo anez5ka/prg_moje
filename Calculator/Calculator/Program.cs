@@ -44,8 +44,9 @@ namespace Calculator
             int x = 1;
             int i = 2;
             int v = 0;
-            int konec = 0;
+            int konec = 0;  //ukonceni, diky teto promenne se kalkulacka nevypne po kazdem vypoctu, ale az uzivatel chce
             double res = 0;
+
             while (konec == 0)
             {
                 what = "a";
@@ -69,27 +70,32 @@ namespace Calculator
                     a = Convert.ToInt32(Console.ReadLine());
                     b = Convert.ToInt32(Console.ReadLine());
 
-
+                    // soucet
                     if (what == "s")
                     {
                         res = a + b;
                     }
+                    //rozdil
                     if (what == "r")
                     {
                         res = a - b;
                     }
+                    //nasobek
                     if (what == "n")
                     {
                         res = a * b;
                     }
+                    //podil
                     if (what == "p")
                     {
                         Convert.ToDouble(a);
                         res = a / b;
                     }
+
+                    //soustava
                     if (what == "m")
                     {
-
+                        // a je prevadene cislo, b je soustava
                         while (b >= 10 && b <= 1)
                         {
                             Console.WriteLine("soustavu zvol mezi 2 a 9");
@@ -108,6 +114,7 @@ namespace Calculator
                         }
                     }
                 }
+                //ukonceni
                 if (konec == 1)
                 {
                     Console.WriteLine("stiskni libovolnou klavesu pro ukonceni programu");
@@ -118,7 +125,7 @@ namespace Calculator
                 }
             }
 
-            Console.ReadKey(); //Toto nech jako posledni radek, aby se program neukoncil ihned, ale cekal na stisk klavesy od uzivatele.
+            Console.ReadKey();
         }
     }
 }

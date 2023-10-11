@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using Internal;
 
 /*
  * Made by Jan Borecky for PRG seminar at Gymnazium Voderadska, year 2023-2024.
@@ -54,6 +55,52 @@ namespace Deathroll
              * ROZSIRENI:
              * - umozni uzivateli opakovat deathroll dokud ma nejake goldy
              */
+
+
+            // DEKLARACE
+
+            int pgold = 1000; // player's gold
+            int cgold = 1000; // computers's gold
+            int bestscore = 0; // nejvyssi dosazeny majetek hrace
+            int proll;
+            int croll;
+            Random rnd = new Random();
+            int bet;
+            int maxbet;
+            int konec = 0; //umoznuje hraci ukoncit hru (ukonci se, kdyz konec == 1)
+
+
+            //UVOD
+
+            Console.WriteLine($"DEATHROLL. Tvoje zlato:{pgold}. Zlato počítače:{cgold}. Tvůj nejvyšší dosažený majetek: {bestscore}.");
+            if (pgold < cgold)
+            {
+                maxbet = pgold;
+            }
+            else
+            {
+                maxbet = cgold;
+            }
+            Console.WriteLine($"Zvol sázku, nejvyšší možná sázka: {maxbet}.");
+            bet = Convert.ToInt32(Console.ReadLine());
+            while ((bet > maxbet) || (bet < 2))
+            {
+                if (bet > maxbet)
+                {
+                    Console.WriteLine($"kretene, prekrocil jsi nejvyssi moznou sazku, zkus to znovu. Tentokrat nepresahni {maxbet}.");
+                }
+                if (bet < 2)
+                {
+                    Console.WriteLine("nejmenší možná sázka, jsou 2 zlata, zkus to znovu");
+                }
+            }
+
+            //HAZENI
+
+            
+
+
+
         }
     }
 }
