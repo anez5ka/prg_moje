@@ -109,14 +109,14 @@ while (konec == 0)
     if (vitez == 1)
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine($"PROHRÁL JSI, přicházíš o {bet} goldu.");
+        Console.WriteLine($"PROHRÁL JSI, přicházíš o {bet} zlata.");
         pgold = pgold - bet;
         cgold = cgold + bet;
     }
     else
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"VYHRÁL JSI, získáváš {bet} goldu.");
+        Console.WriteLine($"VYHRÁL JSI, získáváš {bet} zlata.");
         pgold = pgold + bet;
         cgold = cgold - bet;
 
