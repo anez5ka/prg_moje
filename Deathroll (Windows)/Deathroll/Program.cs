@@ -104,7 +104,6 @@ namespace Deathroll
                         Console.WriteLine($"Nejvyšší možná sázka: {maxbet}!");
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         bet = Convert.ToInt32(Console.ReadLine());
-
                     }
                     if (bet < 2)
                     {
@@ -113,12 +112,10 @@ namespace Deathroll
                         Console.WriteLine("Nejmenší možná sázka, jsou 2, zkus to znovu");
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         bet = Convert.ToInt32(Console.ReadLine());
-
                     }
                 }
 
                 //HAZENI
-
                 Console.WriteLine(" ");
                 vitez = Droll(bet);
                 Console.WriteLine(" ");
@@ -136,18 +133,15 @@ namespace Deathroll
                     Console.WriteLine($"VYHRÁL JSI, získáváš {bet} goldu.");
                     pgold = pgold + bet;
                     cgold = cgold - bet;
-
                 }
 
                 //POVERTY CHECK
-
                 if (cgold == 0)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkGray;
                     Console.WriteLine("");
                     Console.WriteLine("Počítač už nemá žadné zlato.");
                     Console.WriteLine("Získavá proto 1000 pro další hru.");
-
                     cgold += 1000;
                 }
                 if (pgold == 0)
@@ -156,18 +150,13 @@ namespace Deathroll
                     Console.WriteLine("");
                     Console.WriteLine("GAME OVER, nemáš žádné zlato.");
                     Console.WriteLine("Získáváš 1000 pro novou hru.");
-
                     pgold += 1000;
-
                 }
                 Console.WriteLine(" ");
-
-
                 Console.ForegroundColor = ConsoleColor.DarkGray;
                 Console.WriteLine("-----------------------------------");
 
                 //DROLL METHOD
-
                 static int Droll(int n)
                 {
                     int proll = 0;

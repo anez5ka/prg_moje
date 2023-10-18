@@ -75,9 +75,7 @@ namespace RockPaperScissors
             }
             while ((VB > cskore) && (VB > pskore))
             {
-
                 p = "x";
-
                 //* 1 = kamen, 2 = nuzky, 3 = papir
 
                 Console.WriteLine("");
@@ -86,6 +84,7 @@ namespace RockPaperScissors
 
                 if ((p == "k") || (p == "n") || (p == "p"))
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine("");
                     c = rnd.Next(1, 4);
                     if (c == 1)
@@ -113,7 +112,6 @@ namespace RockPaperScissors
                             Console.ForegroundColor = ConsoleColor.White;
                             pskore++;
                         }
-
                     }
                     if (c == 2)
                     {
@@ -146,7 +144,6 @@ namespace RockPaperScissors
                     {
                         Console.WriteLine("počítač zvolil papír");
                         Console.WriteLine("");
-
                         if (p == "k")
                         {
                             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -172,19 +169,14 @@ namespace RockPaperScissors
                     Console.ForegroundColor = ConsoleColor.DarkGray;
                     Console.WriteLine("---------------------");
                     Console.ForegroundColor = ConsoleColor.White;
-
-
                 }
                 else
                 {
                     Console.WriteLine("Nesprávně zadaná hodnota.");
                 }
-
-
             }
             Console.WriteLine("");
             Console.WriteLine("");
-
             if (VB == pskore)
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -194,7 +186,6 @@ namespace RockPaperScissors
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine($"PROHRÁL JSI. Počítač získal {cskore} bodů, ty jsi získal jen {pskore}.");
-
             }
             Console.ReadKey();  //Aby se nam to hnedka neukoncilo
         }
