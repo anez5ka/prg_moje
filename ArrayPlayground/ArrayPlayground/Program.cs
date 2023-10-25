@@ -96,8 +96,17 @@ namespace ArrayPlayground
             Console.WriteLine($"zkouska: 100 = {test}");
 
             //TODO 10: Vytvoř druhé pole, do kterého zkopíruješ prvky z prvního pole v opačném pořadí.
+            int[] reverseArray = new int[num.Length];
+            for(int i = reverseArray.Length-1; i>= 0; i--)
+            {
+                reverseArray[99 - i] = num[i];
+            }
+            for (int i = 0; i < reverseArray.Length; i++)
+            {
+                num[i] = rnd.Next(0, 10);
+                Console.Write($"{reverseArray[i]} ");
+            }
 
-            
             Console.ReadKey();
         }
     }
