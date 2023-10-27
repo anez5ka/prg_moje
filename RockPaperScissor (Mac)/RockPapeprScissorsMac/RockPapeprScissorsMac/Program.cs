@@ -62,9 +62,11 @@ while ((VB > cskore) && (VB > pskore))
     p = "x";
 
     //* 1 = kamen, 2 = nuzky, 3 = papir
-
+    Console.ForegroundColor = ConsoleColor.DarkGray;
     Console.WriteLine("");
     Console.WriteLine("Zadej k (kámen), n (nůžky) nebo p (papír)");
+    Console.ForegroundColor = ConsoleColor.White;
+
     p = Console.ReadLine();
 
     if ((p == "k") || (p == "n") || (p == "p"))

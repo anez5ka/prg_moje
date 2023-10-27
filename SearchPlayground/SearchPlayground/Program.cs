@@ -51,7 +51,7 @@ namespace SearchPlayground
             {
                 if (array[middle] == elementToSearch)
                 {
-                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
                     Console.WriteLine($"    Binární vyhledávání rozdělilo interval {partingcount}-krát");
                     Console.ForegroundColor = ConsoleColor.White;
                     return middle;
@@ -73,7 +73,23 @@ namespace SearchPlayground
         static int BinarySearchRecursive(int[] array, int elementToSearch, int lower, int upper)
         {
             //TODO naimplementuj binární vyhledávání rekurzivním způsobem (Zamysli se nad parametry, které tato funkce přijímá vzpomeň si na přístup Rozděl a Panuj.)
-            return -1;
+             int middleBSR = (lower + upper) / 2;
+            if (array[middleBSR] == elementToSearch)
+            {
+                return middleBSR;
+            }
+            else if (array[middleBSR] > elementToSearch)
+            {
+                return BinarySearchRecursive(array, elementToSearch, lower, middleBSR);
+            }
+            else if (array[middleBSR] < elementToSearch)
+            {
+                return BinarySearchRecursive(array, elementToSearch, middleBSR, upper);
+            }
+            else
+            {
+                return -1;
+            }
         }
 
         //Naplní pole náhodnými rostoucími čísly.
