@@ -47,7 +47,7 @@ namespace SearchPlayground
             double maxcount = (Math.Log((array.Length*1.0),2.0)+2);
 
 
-            while (partingcount < maxcount)
+            while (partingcount < maxcount) // (lower <= upper)
             {
                 if (array[middle] == elementToSearch)
                 {
