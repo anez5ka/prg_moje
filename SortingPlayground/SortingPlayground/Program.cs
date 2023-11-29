@@ -127,7 +127,6 @@ namespace SortingPlayground
 
             Console.WriteLine();
         }
-
         static void Main(string[] args)
         {
             int[] smallArray = new int[10];
@@ -145,8 +144,8 @@ namespace SortingPlayground
             WriteArrayToConsole(mediumArray, "Střední pole");
             SortArray(mediumArray, "Střední pole");
 
-            WriteArrayToConsole(largeArray, "Velké pole");
-            SortArray(largeArray, "Velké pole");
+            // WriteArrayToConsole(largeArray, "Velké pole");
+            // SortArray(largeArray, "Velké pole");
 
             Console.ReadKey();
         }
