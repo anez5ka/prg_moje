@@ -37,6 +37,17 @@ namespace ClassPlayground
             else Console.WriteLine("čtverec");
             return ratio;
         }
+        public bool ContainsPoint(double x, double y)
+        {
+            if (x <= width || y <= height)
+            {
+                return true;
+            }
+            else 
+            { 
+                return false; 
+            }
+        }
 
 
     }
