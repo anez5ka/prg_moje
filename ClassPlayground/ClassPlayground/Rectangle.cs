@@ -25,16 +25,16 @@ namespace ClassPlayground
         {
             double ratio = (height / width);
             ratio = Math.Round(ratio, 3);
-            Console.Write($"poměr stran je {ratio}, obdélník je ");
+            Console.Write($"ratio of sides is {ratio}, rectangle is ");
             if (ratio < 1)
             {
-                Console.WriteLine("široký");
+                Console.WriteLine("wide");
             }
             else if (ratio > 1)
             {
-                Console.WriteLine("vysoký");
+                Console.WriteLine("tall");
             }
-            else Console.WriteLine("čtverec");
+            else Console.WriteLine("square");
             return ratio;
         }
         public bool ContainsPoint(double x, double y)

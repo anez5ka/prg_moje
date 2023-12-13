@@ -20,6 +20,14 @@ namespace ClassPlayground
             this.currency = currency;
             this.balance = balance;
         }
+        public BankAccount(string holderName, string currency, double balance)
+        {
+            Random rnd = new Random();
+            accountNumber = rnd.Next(100000000, 1000000000);
+            this.holderName = holderName;
+            this.currency = currency;
+            this.balance = balance;
+        }
         public BankAccount(string holderName, string currency)
         {
             this.holderName = holderName;  
@@ -39,13 +47,17 @@ namespace ClassPlayground
                 balance = balance - amount;
             }
         }
-        public void Trasfer(int amount, int ToAccount)
+        public void Transfer(int amount, BankAccount ToAccount)
         {
-            if (amount <= balance)
+            if (balance>=amount)
             {
                 balance = balance - amount;
-
+                ToAccount.balance = ToAccount.balance + amount;
             }
+        }
+        public void Check()
+        {
+            Console.WriteLine($"{holderName} has {balance} of {currency}");
         }
     }
 }

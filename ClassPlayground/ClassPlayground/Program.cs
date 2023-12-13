@@ -69,13 +69,34 @@ namespace ClassPlayground
             Rectangle rectangle1 = new Rectangle(98, 150);
             rectangle1.CalculateAspectRatio();
 
+            BankAccount Account1=new BankAccount("Bilbo", "gold coins");
+            BankAccount Account2 = new BankAccount("Gandalf", "gold coins", 20000);
+            Account1.Check();
+            Account2.Check();
+            Account2.Transfer(1000, Account1);
+            Account1.Check();
+            Account2.Check();
+            Account1.Deposit(200);
+            Account1.Check();
+            Account1.Withdraw(100);
+            Account1.Check();
+
+            Student student1 = new Student("Lopouch", 3);
+            student1.AddSubject("czech");
+            student1.AddSubject("english");
+
+            student1.AddGrade("czech", 1);
+            student1.AddGrade("czech", 1);
+            student1.AddGrade("czech", 2);
+            student1.AddGrade("czech", 1.5);
+            student1.AddGrade("english", 2);
+            student1.AddGrade("english", 4);
+            student1.AddGrade("english", 3.5);
+            student1.AddGrade("english", 2);
 
 
 
-            /* Dictionary<string, List<double>> subjects = new Dictionary<string, List<double>>;
-            subjects["ČJ"]= new List<double>();
-            subjects["ČJ"].Add(1.5);
-            */
+
 
             Console.ReadKey();
         }
