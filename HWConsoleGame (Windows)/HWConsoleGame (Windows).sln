@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWConsoleGame (Windows)", "HWConsoleGame (Windows)\HWConsoleGame (Windows).csproj", "{6B7AFDB4-D9F1-4F20-8FE2-4D3E1826CD75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B7AFDB4-D9F1-4F20-8FE2-4D3E1826CD75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7AFDB4-D9F1-4F20-8FE2-4D3E1826CD75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B7AFDB4-D9F1-4F20-8FE2-4D3E1826CD75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B7AFDB4-D9F1-4F20-8FE2-4D3E1826CD75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77F5C74D-E767-4476-A5AD-FF00986A7E45}
+	EndGlobalSection
+EndGlobal
