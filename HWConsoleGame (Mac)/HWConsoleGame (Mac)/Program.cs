@@ -65,6 +65,7 @@ static void Intro3()
 static void Intro4()
 {
     Write.Green(" Great job. You did it. Your Code id done. Here is a kitten as a reward: ");
+    Write.Blank();
     Write.Long(" ╱|、\n(˚ˎ 。7  \n |、˜〵          \n じしˍ,)ノ");
 }
 

@@ -14,10 +14,11 @@ namespace HWConsoleGame__Mac_
         public static void Start()
         {
             Write.Long("As the error apears on the screen, press any key as fast as possible!");
-            Write.Long("To fix your code, you have to press the key ten times in a row, at the right time - not too soon or too late");
+            Write.Long("To fix your code, you have to press the key at the right time - not too soon or too late - ten times in a row.");
             Write.Blank();
             Write.Long("Press any key to start", "gray");
             Write.Border("gray", 80);
+            Write.Colour("black");
             Console.ReadKey();
 
             while(streak < 10)
@@ -27,6 +28,7 @@ namespace HWConsoleGame__Mac_
                 timer = new System.Timers.Timer(time * 1000);
                 timer.Elapsed += Event;
                 timer.AutoReset = false;
+                Write.Colour("black");
                 startTime = DateTime.Now;
                 timer.Enabled = true;
                 Console.ReadKey();

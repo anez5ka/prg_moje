@@ -26,7 +26,7 @@ namespace HWConsoleGame__Windows_
             int max = text.Length;
             for (int i = 0; i < max; i++)
             {
-                Thread.Sleep(30);
+                Thread.Sleep(50);
                 Console.Write(text.Substring(i, 1));
             }
         }
