@@ -5,16 +5,22 @@ namespace HWConsoleGame__Mac_
 {
     internal class GuessingGame
     {
+        public static ConsoleKeyInfo key;
         public static void Start()
         {
             int[] array = MakeArray(8);
-            Write.Long("zkousej psat A a B");
-            int lenght = array.Length;
+
+            Write.Long("Try pressing the left and right arrows, until you get the right order");
+
             while (Game(array) == false)
             {
-                Write.Long("je mi lito, zkus znova");
+                Write.Long("Try again","red");
+                Write.Blank();
             }
-            Write.Long("gratulace");
+            Write.Blank();
+            Write.Long("Congratulation! You got your variables fixed up.","yellow");
+            Write.Border("gray", 80);
+
         }
         public static int[] MakeArray(int number)
         {
@@ -27,25 +33,24 @@ namespace HWConsoleGame__Mac_
             }
             return array;
         }
-        public static string ReadOneKey()
-        {
-            string OneKey = Convert.ToString(Console.ReadLine()).Substring(0, 1);
-            return OneKey;
-        }
         public static bool Game(int[] array)
         {
             int lenght = array.Length;
-            string letter;
+
             for (int i = 0; i < lenght; i++)
             {
-                Write.Colour("black");
-                letter = ReadOneKey();
-                if ((array[i] == 0) && (letter != "a"))
+                key = Console.ReadKey();
+                if ((array[i] == 0) && (key.Key == ConsoleKey.LeftArrow))
                 {
-                    return false;
+                    Write.Short("\u2713");
                 }
-                if ((array[i] == 1) && (letter != "b"))
+                else if ((array[i] == 1) && (key.Key == ConsoleKey.RightArrow))
                 {
+                    Write.Short("\u2713");
+                }
+                else
+                {
+                    Write.Long("❌");
                     return false;
                 }
             }

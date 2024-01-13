@@ -3,146 +3,158 @@ namespace HWConsoleGame__Mac_
 {
     internal class LabyrinthGame
     {
-        public int x, y;
-        public int win = 0;
-        public int[,] map = { { 0, 1, 6, 1, 0},
-            {0, 1, 0, 1, 0 },
-            {2, 1, 1, 1, 0 },
-            { 0, 3, 0, 1, 5 },
-            { 0, 0, 0, 4, 0 } };
-
-        public LabyrinthGame(int x, int y)
+        public static ConsoleKeyInfo move;
+        public static int x = 0;
+        public static int y = 2;
+        public static int win = 0;
+        public static int[,] map = { { 0, 1, 6, 1, 0 }, { 0, 1, 0, 1, 7 }, { 2, 1, 1, 1, 0 }, { 0, 3, 0, 1, 5 }, { 0, 0, 0, 4, 0 } };
+        public static int width = (map.GetLength(0) - 1);
+        public static int height = (map.GetLength(1) - 1);
+        public static int stop = 0;
+        /*
+         { ., 1, 6, 1, . },
+         { ., 1, ., 1, 7 },
+         { 2, 1, 1, 1, . },
+         { ., 3, ., 1, 5 },
+         { ., ., ., 4, . }
+        */
+        public static void Start()
         {
-            this.x = x;
-            this.y = y;
-        }
+            Write.Long("The hallways are kind of a labyrinth. Move around with arrows.");
 
-        public void Start()
-        {
-            Write.Long("vítej, mas tu bludiste bla bla, pohybuj se pomoci awsd");
-            string move;
-            int width = (map.GetLength(0) - 1);
-            int height = (map.GetLength(1) - 1);
-            int stop = 0;
             while (win == 0)
             {
                 switch (map[x, y])
                 {
                     case 1:
                         break;
-                    case 2: // portal
-                        Write.Long("portal te posunul zpet na zacatek");
+                    case 2:
+                        Write.Green("Secret worm-hole teleported you to the entrance.");
+                        Write.Long("You are back at the entrance", "yellow");
                         x = 0;
                         y = 2;
                         break;
-                    case 3: // hladovy hlidac
+                    case 3:
+                        Character.Ask();
                         break;
-                    case 4: // lednice
+                    case 4:
+                        Character.Refrigerator();
                         break;
-                    case 5: // slepa
+                    case 5:
+                        Write.Long("Ups, a dead-end.", "yellow");
                         break;
-                    case 6: // zacatek
-                        Write.Long("Jsi na zacatku");
+                    case 6:
+                        Write.Long("You are at the entrance", "yellow");
+                        break;
+                    case 7:
+                        Character.ServerRoom();
+                        if (Character.k == 1)
+                        {
+                            return;
+                        }
                         break;
                 }
-                CheckAround(x, y, map);
-                while (stop == 0)
+                Write.Blank();
+                CheckAround();
+                Write.Blank();
+                MoveAround();
+                if (map[x, y] != 1)
                 {
-                    move = ReadOneKey();
-                    if (move == "w")
+                    Write.Blank();
+                }
+            }
+        }
+        static void MoveAround()
+        {
+            while (stop == 0)
+            {
+                move = Console.ReadKey();
+                if (move.Key == ConsoleKey.UpArrow)
+                {
+                    if (x < width)
                     {
-                        if (x < width)
+                        if (map[x + 1, y] > 0)
                         {
-                            if (map[x + 1, y] > 0)
-                            {
-                                x++;
-                                stop++;
-                            }
+                            x++;
+                            stop++;
+                            Write.Long(" ^^^ ", "gray");
                         }
-                    }
-                    if (move == "a")
-                    {
-                        if (y > 0)
-                        {
-                            if (map[x, y - 1] > 0)
-                            {
-                                y--;
-                                stop++;
-                            }
-                        }
-                    }
-                    if (move == "d")
-                    {
-                        if (y < height)
-                        {
-                            if (map[x, y + 1] > 0)
-                            {
-                                y++;
-                                stop++;
-                            }
-                        }
-                    }
-                    if (move == "s")
-                    {
-                        if (x > 0)
-                        {
-                            if (map[x - 1, y] > 0)
-                            {
-                                x--;
-                                stop++;
-                            }
-                        }
-                    }
-                    Write.Long(("" + x + y));
-                    if (stop == 0)
-                    {
-                        Write.Long("neplatna klavesa, zkus znovu");
                     }
                 }
-                stop--;
-                move = "";
+                if (move.Key == ConsoleKey.LeftArrow)
+                {
+                    if (y > 0)
+                    {
+                        if (map[x, y - 1] > 0)
+                        {
+                            y--;
+                            stop++;
+                            Write.Long(" <<< ", "gray");
+                        }
+                    }
+                }
+                if (move.Key == ConsoleKey.RightArrow)
+                {
+                    if (y < height)
+                    {
+                        if (map[x, y + 1] > 0)
+                        {
+                            y++;
+                            stop++;
+                            Write.Long(" >>> ", "gray");
+                        }
+                    }
+                }
+                if (move.Key == ConsoleKey.DownArrow)
+                {
+                    if (x > 0)
+                    {
+                        if (map[x - 1, y] > 0)
+                        {
+                            x--;
+                            stop++;
+                            Write.Long(" ⌄⌄⌄ ", "gray");
+                        }
+                    }
+                }
+                if (stop == 0)
+                {
+                    Write.Long("not a valid key, try again", "red");
+                }
             }
-
+            stop--;
         }
-        static void CheckAround(int x, int y, int[,] map)
+        static void CheckAround()
         {
-            Write.Long("jsi na " + x + y);
-            Write.Short("muzes odbocit...");
-            int width = (map.GetLength(0) - 1);
-            int height = (map.GetLength(1) - 1);
+            Write.Short("you can go:", "gray");
             if (x < width)
             {
                 if (map[x + 1, y] > 0)
                 {
-                    Write.Short("dopredu");
+                    Write.Short(" forward(^)");
                 }
             }
             if (y > 0)
             {
                 if (map[x, y - 1] > 0)
                 {
-                    Write.Short("doleva");
+                    Write.Short(" left(<)");
                 }
             }
             if (y < height)
             {
                 if (map[x, y + 1] > 0)
                 {
-                    Write.Short("doprava");
+                    Write.Short(" right(>)");
                 }
             }
             if (x > 0)
             {
                 if (map[x - 1, y] > 0)
                 {
-                    Write.Short("dozadu");
+                    Write.Short(" backward(⌄)");
                 }
             }
-        }
-        static string ReadOneKey()
-        {
-            string OneKey = Convert.ToString(Console.ReadLine()).Substring(0, 1);
-            return OneKey;
         }
     }
 }
