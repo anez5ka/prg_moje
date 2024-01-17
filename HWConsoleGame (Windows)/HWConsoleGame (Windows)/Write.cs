@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace HWConsoleGame__Windows_
 {
     internal class Write
     {
-        public class Write
-    {
+    
         public static void Long(string text, string colour)
         {
             Colour(colour);
@@ -84,6 +84,5 @@ namespace HWConsoleGame__Windows_
                 Console.ForegroundColor = ConsoleColor.Yellow;
             }
         }
-    }
     }
 }

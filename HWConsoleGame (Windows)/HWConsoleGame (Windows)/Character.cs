@@ -71,7 +71,7 @@ namespace HWConsoleGame__Windows_
                     a++;
                     k++;
                     Write.Green("His face lits up. <<Mrgh, I haven't ate in so long. Here, have a key to the server room.>>");
-                    Write.Long("You obtained a key.", "yellow")
+                    Write.Long("You obtained a key.", "yellow");
                 }
                 else if (key.Key == ConsoleKey.B && b == 0)
                 {
