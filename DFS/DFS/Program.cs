@@ -70,13 +70,15 @@ namespace DFS
                 }
                 else
                 {
-                    for (int i = 0; i
-                                    < currentNode.children.Count; i++)  // how the fuck does it help? enter? tf?
+                    if (currentNode.children != null)
                     {
-                        if (currentNode.visitedChildren.Contains(currentNode.children[i]) == false)
+                        for (int i = 0; i
+                                    < currentNode.children.Count; i++)  // how the fuck does it help? enter? tf?
                         {
-                            currentNode = currentNode.children[i];
-                            i = currentNode.children.Count;
+                            if (currentNode.visitedChildren.Contains(currentNode.children[i]) == false)
+                            {
+                                currentNode = currentNode.children[i];
+                            }
                         }
                     }
                 }
@@ -86,11 +88,6 @@ namespace DFS
                 pathToTargetNode.Add(currentNode.parent.index);
                 currentNode = currentNode.parent;
             }
-            
-
-
-
-
             return pathToTargetNode;
         }
 
